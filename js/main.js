@@ -70,11 +70,6 @@ function getMovie() {
 
             if (movie.Poster == 'N/A') {
                 movie.Poster = '/movie_miner/not-found.png';
-            } else {
-                $.ajax({
-                    url: movie.Poster,
-                    type: GET, movie
-                });
             }
 
 
