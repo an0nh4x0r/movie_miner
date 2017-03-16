@@ -4,6 +4,11 @@ $(document).ready(() => {
         getMovies(searchText);
         e.preventDefault();
     });
+
+    $('#submit_button').on('click', (e) => {
+        let searchText = $('#searchText').val();
+        getMovies(searchText);
+    });
 });
 
 function getMovies(searchText) {
@@ -65,7 +70,14 @@ function getMovie() {
 
             if (movie.Poster == 'N/A') {
                 movie.Poster = '/movie_miner/not-found.png';
+            } else {
+                $.ajax({
+                    url: movie.Poster,
+                    type: GET, movie
+                });
             }
+
+
 
             let output = `
 
