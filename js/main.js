@@ -13,7 +13,14 @@ function getMovies(searchText) {
             console.log(response);
             let movies = response.data.Search;
             let output = '';
+
             $.each(movies, (index, movie) => {
+                console.log(movie.Poster);
+
+                if (movie.Poster == 'N/A') {
+                    movie.Poster = "not-found.png"
+                }
+
 
                 output += `
 
@@ -55,6 +62,10 @@ function getMovie() {
             console.log(response);
 
             let movie = response.data;
+
+            if (movie.Poster == 'N/A') {
+                movie.Poster = 'not-found.png';
+            }
 
             let output = `
 
