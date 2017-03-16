@@ -18,7 +18,7 @@ function getMovies(searchText) {
                 console.log(movie.Poster);
 
                 if (movie.Poster == 'N/A') {
-                    movie.Poster = "not-found.png"
+                    movie.Poster = "/movie_miner/not-found.png"
                 }
 
 
@@ -29,7 +29,7 @@ function getMovies(searchText) {
                         
                             <img src="${movie.Poster}" alt="${movie.Title}">
                             
-                            <p style="overflow-wrap: break-word;">${movie.Title}</p>
+                            <p>${movie.Title}</p>
                             
                             <a id="button" onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary" href="#">See Details</a>
                         
@@ -64,7 +64,7 @@ function getMovie() {
             let movie = response.data;
 
             if (movie.Poster == 'N/A') {
-                movie.Poster = 'not-found.png';
+                movie.Poster = '/movie_miner/not-found.png';
             }
 
             let output = `
@@ -104,7 +104,7 @@ function getMovie() {
                         ${movie.Plot}
                         <hr>
                         <a href="http://www.imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
-                        <a href="index.html" class="btn btn-default">Go Back To Search</a>
+                        <a href="/movie_miner/" class="btn btn-default">Go Back To Search</a>
                     </div>
                 
                 </div>
